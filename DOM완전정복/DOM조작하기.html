@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM조작하기</title>
+    <style>
+        html {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-color: black;
+            text-align: center;
+        }
+
+        section {
+            width: 50%;
+            margin: 50px auto;
+            background-color: brown;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        img {
+            z-index: 100;
+            will-change: opacity;
+        }
+
+        h1,
+        h3,
+        span {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <img src="img/avatar.png" alt="avatar" />
+        <h1 id="brand">Dream Coding</h1>
+        <h3>Don't forget to code your dream</h3>
+    </section>
+    <span>Hello World!</span>
+
+    <script>
+        const section = document.querySelector('section');
+        //h2태그를 추가하기
+        const h2 = document.createElement('h2');
+        //h2태그에 클래스추가, 클래스명
+        h2.setAttribute('class', 'title'); //<h2 class="title"></h2>
+        //h2에 text 추가
+        h2.textContent = 'This is title'; // <h2 class="title">This is title</h2>
+
+        //section에 새로만든 h2태그 추가하기
+        // section.appendChild(h2); //부모안의 가장 끝부분에 추가가됨
+        //insertBefore()를 사용하면 어떤 node전에 추가할지 설정할 수 있음.
+        const h3 = document.querySelector('h3');
+        section.insertBefore(h2, h3);
+    </script>
+</body>
+
+</html>
